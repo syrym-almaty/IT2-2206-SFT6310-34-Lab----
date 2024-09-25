@@ -1,3 +1,7 @@
+# Shukhrat's notes
+
+> my notes are here
+
 # IT2-2203-SFT6310-31-Lab-Web-Component-Development-Java-EE-Lab
 
 ## Overview
