@@ -1,5 +1,7 @@
 # Web Component Development with Java EE
 
+i runned
+
 ---
 
 ## Welcome to the IT2-2206 Web Component Development project! Follow the instructions below to clone the repository, set up your environment, and start developing
