@@ -25,7 +25,15 @@ public class StudentService {
     public Student getStudentById(UUID id) {
         return studentRepository.findById(id).orElse(null);
     }
-
+    public Student updateStudent(UUID id, Student updatedStudent) {
+        return studentRepository.findById(id)
+                .map(student -> {
+                    student.setName(updatedStudent.getName());
+                    student.setEmail(updatedStudent.getEmail());
+                    return studentRepository.save(student);
+                })
+                .orElseThrow(() -> new ResourceNotFoundException("Student not found with id " + id));
+    }
     public void deleteStudent(UUID id) {
         studentRepository.deleteById(id);
     }
