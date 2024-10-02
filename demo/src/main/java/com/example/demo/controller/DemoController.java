@@ -35,7 +35,11 @@ public class DemoController {
 
     @Operation(summary = "Create User", description = "Creates a new user by accepting a JSON body with name and email.")
     @ApiResponses(value = {
+<<<<<<< HEAD
             @ApiResponse(responseCode = "201", description = "User created successfully",
+=======
+            @ApiResponse(responseCode = "200", description = "User created successfully",
+>>>>>>> 73c5406cba414e1fe7e17626a8cbd4c6e1706816
                     content = { @Content(mediaType = "application/json",
                             schema = @Schema(implementation = User.class)) }),
             @ApiResponse(responseCode = "400", description = "Invalid input data")
@@ -58,7 +62,10 @@ class Greeting {
         this.note = note;
     }
 
+<<<<<<< HEAD
     // Getters and Setters
+=======
+>>>>>>> 73c5406cba414e1fe7e17626a8cbd4c6e1706816
     public String getMessage() {
         return message;
     }
@@ -88,7 +95,10 @@ class User {
         this.email = email;
     }
 
+<<<<<<< HEAD
     // Getters and Setters
+=======
+>>>>>>> 73c5406cba414e1fe7e17626a8cbd4c6e1706816
     public String getName() {
         return name;
     }
@@ -97,7 +107,11 @@ class User {
         this.name = name;
     }
 
+<<<<<<< HEAD
 	public String getEmail() {
+=======
+    public String getEmail() {
+>>>>>>> 73c5406cba414e1fe7e17626a8cbd4c6e1706816
         return email;
     }
 

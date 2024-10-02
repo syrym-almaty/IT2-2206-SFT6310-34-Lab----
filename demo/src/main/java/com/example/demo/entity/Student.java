@@ -3,7 +3,10 @@ package com.example.demo.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+<<<<<<< HEAD
 import jakarta.persistence.Column;
+=======
+>>>>>>> 73c5406cba414e1fe7e17626a8cbd4c6e1706816
 import org.hibernate.annotations.GenericGenerator;
 import java.util.UUID;
 
@@ -16,7 +19,10 @@ public class Student {
         name = "UUID",
         strategy = "org.hibernate.id.UUIDGenerator"
     )
+<<<<<<< HEAD
     @Column(columnDefinition = "uuid")
+=======
+>>>>>>> 73c5406cba414e1fe7e17626a8cbd4c6e1706816
     private UUID id;
 
     private String name;
@@ -47,7 +53,11 @@ public class Student {
         this.name = name;
     }
 
+<<<<<<< HEAD
 	public String getEmail() {
+=======
+    public String getEmail() {
+>>>>>>> 73c5406cba414e1fe7e17626a8cbd4c6e1706816
         return email;
     }
 
