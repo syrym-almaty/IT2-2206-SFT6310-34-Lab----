@@ -4,10 +4,12 @@ spring:
 
   datasource:
     url: jdbc:h2:file:./data/demo-db;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE
-    driverClassName: org.h2.Driver
+    driver-class-name: org.h2.Driver
     username: sa
     password: password
-    platform: h2
+    sql:
+      init:
+        platform: h2
 
   h2:
     console:
@@ -18,11 +20,15 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
 
 springdoc:
   api-docs:
     path: /api-docs
   swagger-ui:
     path: /swagger-ui.html
-    operationsSorter: method
-    tagsSorter: name
+    operations-sorter: method
+    tags-sorter: name
