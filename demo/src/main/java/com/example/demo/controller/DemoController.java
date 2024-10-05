@@ -18,7 +18,7 @@ public class DemoController {
     @ApiResponse(responseCode = "200", description = "Greeting message returned successfully")
     @GetMapping("/hello/{name}")
     public String helloWorld(@PathVariable("name") String name) {
-        return "Hello, Swagger!";
+        return "Hello," + name + "!";
     }
 
     @Operation(summary = "Greet User", description = "Returns a greeting message with a note in JSON format.")
