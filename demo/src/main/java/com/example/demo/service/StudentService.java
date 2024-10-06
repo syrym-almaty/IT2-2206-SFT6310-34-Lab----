@@ -17,6 +17,10 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
+    public Student getStudentByName(String name) {
+        return studentRepository.findByName(name);
+    }
+
     public Student createStudent(Student student) {
         return studentRepository.save(student);
     }
