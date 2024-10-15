@@ -634,5 +634,6 @@ Reload Your Configuration
 source ~/.bashrc
 
 ```
+cd path/to/IT2-2206-Web-Component-Development-Java-EE/demo
 
 ---
