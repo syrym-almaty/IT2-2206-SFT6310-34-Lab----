@@ -11,4 +11,9 @@ public class ZhakoController {
     private String halo() {
         return "check commit push";
     }
+
+    @GetMapping("he")
+    private String he() {
+        return "check commit push";
+    }
 }
