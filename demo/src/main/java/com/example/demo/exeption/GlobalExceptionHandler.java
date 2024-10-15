@@ -19,10 +19,6 @@ public class GlobalExceptionHandler {
         );
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
-
-    // You can add more exception handlers here
-
-    // Inner class for error response
     public static class ErrorResponse {
         private int status;
         private String message;
@@ -34,7 +30,6 @@ public class GlobalExceptionHandler {
             this.timestamp = timestamp;
         }
 
-        // Getters and Setters
         public int getStatus() {
             return status;
         }

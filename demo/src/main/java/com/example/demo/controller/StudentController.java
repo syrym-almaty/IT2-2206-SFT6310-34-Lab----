@@ -78,4 +78,16 @@ public class StudentController {
             @PathVariable UUID id) {
         studentService.deleteStudent(id);
     }
+
+    @Operation(summary = "Update Student", description = "Update Student by parts")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Student updated successfully"),
+            @ApiResponse(responseCode = "400", description = "Invalid input data"),
+            @ApiResponse(responseCode = "404", description = "Student not found")
+    })
+    @PatchMapping("/{id}")
+    public Student patchStudent(@PathVariable UUID id,  @RequestBody Student studentUpdates){
+        return studentService.updateStudent(id, studentUpdates);
+    }
+
 }
