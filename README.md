@@ -104,6 +104,7 @@ git checkout main
 ```bash
 
 git pull origin main
+git checkout -b feature/update-student
 
 ```
 
@@ -635,5 +636,9 @@ source ~/.bashrc
 
 ```
 cd path/to/IT2-2206-Web-Component-Development-Java-EE/demo
+
+git checkout main
+git pull origin main
+
 
 ---
