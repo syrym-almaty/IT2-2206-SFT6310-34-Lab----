@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -51,6 +52,15 @@ public class StudentController {
             @PathVariable UUID id) {
         return studentService.getStudentById(id);
     }
+    @PutMapping("/{id}")
+    public Student updateStudent(
+            @Parameter(description = "UUID of the student to update", required = true)
+            @PathVariable UUID id,
+            @Parameter(description = "Updated student object", required = true)
+            @RequestBody Student updatedStudent) {
+        return studentService.updateStudent(id, updatedStudent);
+    }
+
 
     @Operation(summary = "Delete Student", description = "Delete a student by their ID")
     @ApiResponses(value = {
