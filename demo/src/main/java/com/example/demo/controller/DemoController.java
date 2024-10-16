@@ -18,7 +18,7 @@ public class DemoController {
     @ApiResponse(responseCode = "200", description = "Greeting message returned successfully")
     @GetMapping("/hello")
     public String helloWorld() {
-        return "Hello, Jaras!";
+        return "Hello, Swagger!";
     }
 
     @Operation(summary = "Greet User", description = "Returns a greeting message with a note in JSON format.")
@@ -97,7 +97,7 @@ class User {
         this.name = name;
     }
 
-	public String getEmail() {
+    public String getEmail() {
         return email;
     }
 
