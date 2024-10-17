@@ -16,9 +16,9 @@ public class DemoController {
 
     @Operation(summary = "Say Hello", description = "This endpoint returns a simple greeting message.")
     @ApiResponse(responseCode = "200", description = "Greeting message returned successfully")
-    @GetMapping("/hello")
-    public String helloWorld() {
-        return "Hello, Swagger!";
+    @GetMapping("/hello/{name}")
+    public String helloWorld(@PathVariable("name") String name) {
+        return "Hello," + name + "!";
     }
 
     @Operation(summary = "Greet User", description = "Returns a greeting message with a note in JSON format.")
