@@ -1,53 +1,26 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
+@EqualsAndHashCode(callSuper = true)
+@Data
 @Entity
-public class Student {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(columnDefinition = "uuid")
-    private UUID id;
-
-    private String name;
+@DiscriminatorValue("Student")
+@AllArgsConstructor
+@NoArgsConstructor
+public class Student extends User{
     private String email;
-
-    // Constructors
-    public Student() {}
-
-    public Student(String name, String email) {
-        this.name = name;
-        this.email = email;
-    }
-
-    // Getters and Setters
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    private Double gpa;
+    @ManyToMany
+    @JoinTable(
+            name = "enrollments",
+            joinColumns = @JoinColumn(name = "student_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id")
+    )
+    private Set<Course> courses = new HashSet<>();
 }
