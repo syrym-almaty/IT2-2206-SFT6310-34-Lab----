@@ -1,32 +1,23 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
 public class Student {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(columnDefinition = "uuid")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    private String name;
-    private String email;
+    private String name; // Поле для имени
+    private String email; // Поле для email
 
-    // Constructors
-    public Student() {}
+    @ManyToMany(mappedBy = "students")
+    private Set<Course> courses;
 
-    public Student(String name, String email) {
-        this.name = name;
-        this.email = email;
-    }
-
-    // Getters and Setters
+    // Геттеры и сеттеры
     public UUID getId() {
         return id;
     }
@@ -35,19 +26,27 @@ public class Student {
         this.id = id;
     }
 
-    public String getName() {
+    public String getName() { // Геттер для поля name
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name) { // Сеттер для поля name
         this.name = name;
     }
 
-    public String getEmail() {
+    public String getEmail() { // Геттер для поля email
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email) { // Сеттер для поля email
         this.email = email;
+    }
+
+    public Set<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(Set<Course> courses) {
+        this.courses = courses;
     }
 }
