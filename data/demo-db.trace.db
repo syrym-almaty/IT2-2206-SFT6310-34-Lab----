@@ -1,0 +1,56 @@
+2024-10-22 23:07:03.257167+05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "create table [*]user (username varchar(255) not null, enabled boolean not null, password varchar(255), primary key (username))"; ожидалось "identifier"
+Syntax error in SQL statement "create table [*]user (username varchar(255) not null, enabled boolean not null, password varchar(255), primary key (username))"; expected "identifier"; SQL statement:
+create table user (username varchar(255) not null, enabled boolean not null, password varchar(255), primary key (username)) [42001-224]
+2024-10-22 23:07:03.270689+05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "alter table if exists user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references [*]user"; ожидалось "identifier"
+Syntax error in SQL statement "alter table if exists user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references [*]user"; expected "identifier"; SQL statement:
+alter table if exists user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references user [42001-224]
+2024-10-22 23:09:25.562350+05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "create table [*]user (username varchar(255) not null, enabled boolean not null, password varchar(255), primary key (username))"; ожидалось "identifier"
+Syntax error in SQL statement "create table [*]user (username varchar(255) not null, enabled boolean not null, password varchar(255), primary key (username))"; expected "identifier"; SQL statement:
+create table user (username varchar(255) not null, enabled boolean not null, password varchar(255), primary key (username)) [42001-224]
+2024-10-22 23:09:25.572031+05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "alter table if exists user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references [*]user"; ожидалось "identifier"
+Syntax error in SQL statement "alter table if exists user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references [*]user"; expected "identifier"; SQL statement:
+alter table if exists user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references user [42001-224]
+2024-10-22 23:09:59.257381+05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "create table [*]user (username varchar(255) not null, enabled boolean not null, password varchar(255), primary key (username))"; ожидалось "identifier"
+Syntax error in SQL statement "create table [*]user (username varchar(255) not null, enabled boolean not null, password varchar(255), primary key (username))"; expected "identifier"; SQL statement:
+create table user (username varchar(255) not null, enabled boolean not null, password varchar(255), primary key (username)) [42001-224]
+2024-10-22 23:09:59.267188+05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "alter table if exists user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references [*]user"; ожидалось "identifier"
+Syntax error in SQL statement "alter table if exists user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references [*]user"; expected "identifier"; SQL statement:
+alter table if exists user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references user [42001-224]
+2024-10-22 23:25:33.402963+05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "create table [*]user (username varchar(255) not null, enabled boolean not null, password varchar(255), primary key (username))"; ожидалось "identifier"
+Syntax error in SQL statement "create table [*]user (username varchar(255) not null, enabled boolean not null, password varchar(255), primary key (username))"; expected "identifier"; SQL statement:
+create table user (username varchar(255) not null, enabled boolean not null, password varchar(255), primary key (username)) [42001-224]
+2024-10-22 23:25:33.412851+05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "alter table if exists user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references [*]user"; ожидалось "identifier"
+Syntax error in SQL statement "alter table if exists user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references [*]user"; expected "identifier"; SQL statement:
+alter table if exists user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references user [42001-224]
+2024-10-23 09:27:57.225052+05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "create table [*]user (username varchar(255) not null, enabled boolean not null, password varchar(255), primary key (username))"; ожидалось "identifier"
+Syntax error in SQL statement "create table [*]user (username varchar(255) not null, enabled boolean not null, password varchar(255), primary key (username))"; expected "identifier"; SQL statement:
+create table user (username varchar(255) not null, enabled boolean not null, password varchar(255), primary key (username)) [42001-224]
+2024-10-23 09:27:57.242263+05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "alter table if exists user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references [*]user"; ожидалось "identifier"
+Syntax error in SQL statement "alter table if exists user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references [*]user"; expected "identifier"; SQL statement:
+alter table if exists user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references user [42001-224]
+2024-10-23 09:31:09.933543+05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "create table [*]user (username varchar(255) not null, enabled boolean not null, password varchar(255), primary key (username))"; ожидалось "identifier"
+Syntax error in SQL statement "create table [*]user (username varchar(255) not null, enabled boolean not null, password varchar(255), primary key (username))"; expected "identifier"; SQL statement:
+create table user (username varchar(255) not null, enabled boolean not null, password varchar(255), primary key (username)) [42001-224]
+2024-10-23 09:31:09.947792+05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "alter table if exists user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references [*]user"; ожидалось "identifier"
+Syntax error in SQL statement "alter table if exists user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references [*]user"; expected "identifier"; SQL statement:
+alter table if exists user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references user [42001-224]
+2024-10-23 09:32:12.462729+05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "create table [*]user (username varchar(255) not null, enabled boolean not null, password varchar(255), primary key (username))"; ожидалось "identifier"
+Syntax error in SQL statement "create table [*]user (username varchar(255) not null, enabled boolean not null, password varchar(255), primary key (username))"; expected "identifier"; SQL statement:
+create table user (username varchar(255) not null, enabled boolean not null, password varchar(255), primary key (username)) [42001-224]
+2024-10-23 09:32:12.476992+05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "alter table if exists user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references [*]user"; ожидалось "identifier"
+Syntax error in SQL statement "alter table if exists user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references [*]user"; expected "identifier"; SQL statement:
+alter table if exists user_roles add constraint FK55itppkw3i07do3h7qoclqd4k foreign key (user_id) references user [42001-224]

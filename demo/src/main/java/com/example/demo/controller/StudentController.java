@@ -78,4 +78,9 @@ public class StudentController {
             @RequestBody Student updatedStudent) {
         return studentService.updateStudent(id, updatedStudent);
     }
+
+    @GetMapping("/profile")
+    public String getStudentProfile() {
+        return "Student Profile: Access granted to STUDENT role";
+    }
 }
