@@ -1,9 +1,9 @@
-package com.example.demo.controller;
-
-import com.example.demo.entity.Student;
+com.example.demo.entity.Student;
 import com.example.demo.service.StudentService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
+import iopackage com.example.demo.controller;
+
+import.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -30,8 +30,8 @@ public class StudentController {
 
     @Operation(summary = "Create Student", description = "Create a new student")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "201", description = "Student created successfully"),
-        @ApiResponse(responseCode = "400", description = "Invalid input")
+            @ApiResponse(responseCode = "201", description = "Student created successfully"),
+            @ApiResponse(responseCode = "400", description = "Invalid input")
     })
     @PostMapping
     public Student createStudent(
@@ -42,8 +42,8 @@ public class StudentController {
 
     @Operation(summary = "Get Student by ID", description = "Retrieve a student by their ID")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Successfully retrieved student"),
-        @ApiResponse(responseCode = "404", description = "Student not found")
+            @ApiResponse(responseCode = "200", description = "Successfully retrieved student"),
+            @ApiResponse(responseCode = "404", description = "Student not found")
     })
     @GetMapping("/{id}")
     public Student getStudentById(
@@ -54,8 +54,8 @@ public class StudentController {
 
     @Operation(summary = "Delete Student", description = "Delete a student by their ID")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "204", description = "Student deleted successfully"),
-        @ApiResponse(responseCode = "404", description = "Student not found")
+            @ApiResponse(responseCode = "204", description = "Student deleted successfully"),
+            @ApiResponse(responseCode = "404", description = "Student not found")
     })
     @DeleteMapping("/{id}")
     public void deleteStudent(
@@ -63,4 +63,21 @@ public class StudentController {
             @PathVariable UUID id) {
         studentService.deleteStudent(id);
     }
+    @Operation(summary = "Update Student", description = "Update an existing student's information")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Student updated successfully"),
+            @ApiResponse(responseCode = "400", description = "Invalid input data"),
+            @ApiResponse(responseCode = "404", description = "Student not found")
+    })
+    @PutMapping("/{id}")
+    public Student updateStudent(
+            @Parameter(description = "UUID of the student to update", required = true)
+            @PathVariable UUID id,
+            @Parameter(description = "Updated student object", required = true)
+            @RequestBody Student updatedStudent) {
+        return studentService.updateStudent(id, updatedStudent);
+    }
+
 }
+
+
