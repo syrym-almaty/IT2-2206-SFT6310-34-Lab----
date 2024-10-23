@@ -1,14 +1,14 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Student;
-import com.example.demo.service.StudentService;
+import com.example.demo.services.StudentService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +21,11 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
+
+    @GetMapping("/user")
+    public String getUserInfo(OAuth2AuthenticationToken authentication) {
+        return authentication.getPrincipal().getAttributes().toString();
+    }
 
     @Operation(summary = "Get All Students", description = "Retrieve a list of all students")
     @ApiResponse(responseCode = "200", description = "Successfully retrieved list")

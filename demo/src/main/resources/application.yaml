@@ -7,7 +7,7 @@ spring:
     driverClassName: org.h2.Driver
     username: sa
     password: password
-    platform: h2
+
 
   h2:
     console:
@@ -18,6 +18,21 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: Ov23liBf7Wg6nF7OthsK
+            client-secret: 032404b4c686d8309992ace6a489de72c54f882c
+            scope: profile, email
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+        provider:
+          github:
+            authorization-uri: https://github.com/login/oauth/authorize
+            token-uri: https://github.com/login/oauth/access_token
+            user-info-uri: https://api.github.com/user
 
 springdoc:
   api-docs:
