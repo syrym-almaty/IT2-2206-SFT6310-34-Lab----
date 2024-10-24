@@ -1,15 +1,15 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Column;
-import java.util.UUID;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.*;
 
 @Entity
+@Getter
+@Setter
 public class Student {
-
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(columnDefinition = "uuid")
@@ -17,6 +17,16 @@ public class Student {
 
     private String name;
     private String email;
+
+    @ManyToOne
+    @JoinColumn(name = "enrollment_id")
+    private Enrollment enrollment;
+
+    @ManyToMany(mappedBy = "students") // Убедитесь, что это соответствует имени поля в Course
+    private Set<Course> courses = new HashSet<>();
+
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<CourseGrade> courseGrades;
 
     // Constructors
     public Student() {}
@@ -26,28 +36,24 @@ public class Student {
         this.email = email;
     }
 
-    // Getters and Setters
-    public UUID getId() {
-        return id;
+    // Метод для добавления курса
+    public void addCourse(Course course) {
+        courses.add(course);
+        course.getStudents().add(this); // Предполагается, что у вас есть метод getStudents() в классе Course
     }
 
-    public void setId(UUID id) {
-        this.id = id;
+    public List<Course> getCourses() {
+        return new ArrayList<>(courses);
     }
 
-    public String getName() {
-        return name;
+    public List<CourseGrade> getCourseGrades() {
+        return courseGrades;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCourseGrades(List<CourseGrade> courseGrades) {
+        this.courseGrades = courseGrades;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    // GPA field
+    private Double gpa;
 }

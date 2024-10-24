@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/students")
+@PreAuthorize("hasRole('STUDENT')")
 @Tag(name = "Student Controller", description = "CRUD operations for Students")
 public class StudentController {
 
@@ -30,8 +32,8 @@ public class StudentController {
 
     @Operation(summary = "Create Student", description = "Create a new student")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "201", description = "Student created successfully"),
-        @ApiResponse(responseCode = "400", description = "Invalid input")
+            @ApiResponse(responseCode = "201", description = "Student created successfully"),
+            @ApiResponse(responseCode = "400", description = "Invalid input")
     })
     @PostMapping
     public Student createStudent(
@@ -42,8 +44,8 @@ public class StudentController {
 
     @Operation(summary = "Get Student by ID", description = "Retrieve a student by their ID")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Successfully retrieved student"),
-        @ApiResponse(responseCode = "404", description = "Student not found")
+            @ApiResponse(responseCode = "200", description = "Successfully retrieved student"),
+            @ApiResponse(responseCode = "404", description = "Student not found")
     })
     @GetMapping("/{id}")
     public Student getStudentById(
@@ -52,10 +54,25 @@ public class StudentController {
         return studentService.getStudentById(id);
     }
 
+    @Operation(summary = "Update Student", description = "Update an existing student's information")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Student updated successfully"),
+            @ApiResponse(responseCode = "400", description = "Invalid input data"),
+            @ApiResponse(responseCode = "404", description = "Student not found")
+    })
+    @PutMapping("/{id}")
+    public Student updateStudent(
+            @Parameter(description = "UUID of the student to update", required = true)
+            @PathVariable UUID id,
+            @Parameter(description = "Updated student object", required = true)
+            @RequestBody Student updatedStudent) {
+        return studentService.updateStudent(id, updatedStudent);
+    }
+
     @Operation(summary = "Delete Student", description = "Delete a student by their ID")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "204", description = "Student deleted successfully"),
-        @ApiResponse(responseCode = "404", description = "Student not found")
+            @ApiResponse(responseCode = "204", description = "Student deleted successfully"),
+            @ApiResponse(responseCode = "404", description = "Student not found")
     })
     @DeleteMapping("/{id}")
     public void deleteStudent(
@@ -63,4 +80,16 @@ public class StudentController {
             @PathVariable UUID id) {
         studentService.deleteStudent(id);
     }
+
+    @Operation(summary = "Update Student", description = "Update Student by parts")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Student updated successfully"),
+            @ApiResponse(responseCode = "400", description = "Invalid input data"),
+            @ApiResponse(responseCode = "404", description = "Student not found")
+    })
+    @PatchMapping("/{id}")
+    public Student patchStudent(@PathVariable UUID id,  @RequestBody Student studentUpdates){
+        return studentService.updateStudent(id, studentUpdates);
+    }
+
 }
