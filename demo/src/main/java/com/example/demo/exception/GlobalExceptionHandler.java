@@ -1,4 +1,4 @@
-package com.example.demo.exeption;
+package com.example.demo.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,19 +10,17 @@ import java.time.LocalDateTime;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<ErrorResponse> handleResourceNotFound(ResourceNotFoundException ex) {
-        ErrorResponse error = new ErrorResponse(
-                HttpStatus.NOT_FOUND.value(),
-                ex.getMessage(),
-                LocalDateTime.now()
-        );
-        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<String> handleBusinessException(BusinessException ex) {
+        return ResponseEntity.badRequest().body(ex.getMessage());
     }
 
-    // You can add more exception handlers here
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<String> handleNotFoundException(ResourceNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    }
 
-    // Inner class for error response
+
     public static class ErrorResponse {
         private int status;
         private String message;
