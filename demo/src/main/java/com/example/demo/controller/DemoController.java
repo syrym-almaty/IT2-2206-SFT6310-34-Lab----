@@ -8,6 +8,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Controller;
+import org.springframework.boot.web.servlet.error.ErrorController;
 
 @RestController
 @RequestMapping("/api/demo")
@@ -46,9 +48,9 @@ public class DemoController {
             @RequestBody User user) {
         return new User(user.getName(), user.getEmail());
     }
+
 }
 
-// A simple POJO class to return a greeting message as JSON
 class Greeting {
     private String message;
     private String note;
@@ -75,7 +77,6 @@ class Greeting {
     }
 }
 
-// A simple POJO class representing a User
 class User {
     private String name;
     private String email;

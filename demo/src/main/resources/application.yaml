@@ -1,28 +1,11 @@
 spring:
-  application:
-    name: demo
-
-  datasource:
-    url: jdbc:h2:file:./data/demo-db;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE
-    driverClassName: org.h2.Driver
-    username: sa
-    password: password
-    platform: h2
-
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-
-springdoc:
-  api-docs:
-    path: /api-docs
-  swagger-ui:
-    path: /swagger-ui.html
-    operationsSorter: method
-    tagsSorter: name
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: Ov23limYcRxmgFbr2osk
+            client-secret: 309748d1c565d5043d6ab7a078c878864bdfaf6e
+            scope: read:user, user:email
+            redirect-uri: "http://localhost:8080/login/oauth2/code/github"
+            client-name: GitHub
